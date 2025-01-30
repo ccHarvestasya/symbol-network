@@ -23,6 +23,6 @@ describe('help', () => {
             console.log(ctx.stdout);
             expect(ctx.stdout).to.contain('USAGE');
             expect(ctx.stdout).to.contain('COMMANDS');
-            expect(ctx.stdout).to.contain('generateNemesis');
+            expect(ctx.stdout).to.contain('CLI tools to create node clusters for new or existing Symbol networks.');
         });
 });

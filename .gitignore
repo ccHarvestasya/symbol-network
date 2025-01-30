@@ -12,3 +12,5 @@ coverage
 /ts-docs/
 /oclif.manifest.json
 *.iml
+
+.yarn

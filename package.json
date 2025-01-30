@@ -2,9 +2,7 @@
     "name": "symbol-network",
     "version": "0.0.2",
     "description": "CLI tools to create node clusters for new or existing Symbol networks.",
-    "bin": {
-        "symbol-network": "bin/run"
-    },
+    "bin": "bin/run",
     "homepage": "https://github.com/fboucquez/symbol-network",
     "bugs": "https://github.com/fboucquez/symbol-network/issues",
     "scripts": {
@@ -100,5 +98,10 @@
         "ts-node": "^10.4.0",
         "typedoc": "^0.22.11",
         "typescript": "^4.5.5"
+    },
+    "volta": {
+        "node": "12.22.12",
+        "yarn": "1.22.22",
+        "npm": "6.14.18"
     }
 }

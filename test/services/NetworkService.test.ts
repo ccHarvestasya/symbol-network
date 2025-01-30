@@ -20,7 +20,7 @@ import 'mocha';
 import { join } from 'path';
 import { stub } from 'sinon';
 import { FileSystemService, LoggerFactory, LogType, VotingUtils, YamlUtils } from 'symbol-bootstrap';
-import { Account, Convert } from 'symbol-sdk';
+import { Account, Convert, NetworkType } from 'symbol-sdk';
 import { LocalFileKeyStore, NetworkService, NetworkUtils } from '../../src';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -57,9 +57,9 @@ describe('NetworkService', () => {
         };
 
         stub(keyStore, <any>'generateNewAccount').callsFake((generate, networkType) => {
-            return Account.createFromPrivateKey(TestUtils.toKey((counter++).toString()), networkType);
+            return Account.createFromPrivateKey(TestUtils.toKey((counter++).toString()), networkType as NetworkType);
         });
-        stub(keyStore, <any>'createVotingKeyFile').callsFake(createVotingKeyFile);
+        stub(keyStore, <any>'createVotingKeyFile').callsFake(createVotingKeyFile as (...args: unknown[]) => unknown);
         await service.expandNodes(keyStore);
         await service.generateNemesis(keyStore, {
             regenerate: false,
