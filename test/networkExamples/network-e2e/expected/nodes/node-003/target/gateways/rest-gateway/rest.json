@@ -97,5 +97,8 @@
     "deploymentTool": "symbol-bootstrap",
     "deploymentToolVersion": "1.0.8",
     "lastUpdatedDate": "2021-07-05"
+  },
+  "nodeMetadata": {
+    "_info": "Node metadata"
   }
 }

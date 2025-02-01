@@ -64,12 +64,12 @@ maxNameSize: 64
 maxChildNamespaces: 100
 maxNamespaceDepth: 3
 batchVerificationRandomSource: /dev/urandom
-symbolServerImage: symbolplatform/symbol-server:gcc-1.0.3.6
-symbolRestImage: symbolplatform/symbol-rest:2.4.3
+symbolServerImage: symbolplatform/symbol-server:gcc-1.0.3.7
+symbolRestImage: symbolplatform/symbol-rest:2.4.4
 symbolExplorerImage: symbolplatform/symbol-explorer:1.1.1-alpha-202110290945
 symbolFaucetImage: symbolplatform/symbol-faucet:1.0.1-alpha-202110131930
-mongoImage: mongo:5.0.15
-httpsPortalImage: steveltn/https-portal:1.23
+mongoImage: mongo:6.0.14
+httpsPortalImage: steveltn/https-portal:1.23.1
 mongoComposeRunParam: '--wiredTigerCacheSizeGB 2'
 logLevel: Info
 transactionsDirectory: ./transactions
@@ -84,6 +84,9 @@ enableRevoteOnBoot: false
 totalVotingBalanceCalculationFix: 528000
 treasuryReissuance: 689761
 strictAggregateTransactionHash: 1'690'500
+skipSecretLockUniquenessChecks: 3'191'538
+skipSecretLockExpirations: 3'197'860, 3'197'866
+forceSecretLockExpirations: 3'197'458, 3'197'781
 caCertificateExpirationInDays: 7300
 nodeCertificateExpirationInDays: 375
 certificateExpirationWarningInDays: 30
@@ -91,6 +94,8 @@ databaseName: catapult
 maxWriterThreads: 8
 maxDropBatchSize: 10
 writeTimeout: 10m
+nodeStopGracePeriod: 300s
+brokerStopGracePeriod: 20s
 peersP2PListLimit: 10000
 peersApiListLimit: 10000
 shortLivedCacheMessageDuration: 10m
@@ -172,11 +177,13 @@ minTransactionFailuresCountForBan: 8
 minTransactionFailuresPercentForBan: 10
 enableStatistics: false
 maxOpenFiles: 0
+maxWriteBatchSize: 5MB
+maxLogFiles: 10
 maxBackgroundThreads: 0
 maxSubcompactionThreads: 0
 blockCacheSize: 0MB
 memtableMemoryBudget: 0MB
-maxWriteBatchSize: 5MB
+maxLogFileSize: 100MB
 throttlingBurst: 80
 throttlingRate: 60
 restLoggingFilename: /symbol-workdir/logs/catapult-rest.log
@@ -200,6 +207,8 @@ restProtocol: HTTP
 restSSLPath: /symbol-workdir
 restSSLKeyFileName: restSSL.key
 restSSLCertificateFileName: restSSL.crt
+restNodeMetadata:
+    _info: Node metadata
 statisticsServicePeerFilter: ''
 statisticsServicePeerLimit: 50
 statisticsServiceRestFilter: suggested
